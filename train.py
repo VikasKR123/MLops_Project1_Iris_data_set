@@ -38,6 +38,6 @@ def predict():
     except Exception as e:
         app.logger.error(f"Error: {e}")
         return jsonify({'error': str(e)}), 500
-
+#this is the initating point
 if __name__ == '__main__':
     app.run(port=5001, debug=True)

@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirment.txt  # Fixed typo here
+          pip install -r requirements.txt  # Fixed typo here
 
       - name: Run tests
         run: |
@@ -35,8 +35,11 @@ jobs:
         run: |
           docker build -t iris_model_app .
 
-      - name: Push Docker image
+      - name: Login to Docker Hub
         run: |
-          echo "$V1i2k3@4s5" | docker login -u "$vikaskarbail" --password-stdin
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Tag and Push Docker image
+        run: |
           docker tag iris_model_app vikaskarbail/iris_model_app:latest  # Replace with your Docker Hub username
           docker push vikaskarbail/iris_model_app:latest  # Same here
