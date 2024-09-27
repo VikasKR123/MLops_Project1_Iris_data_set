@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirment.txt  # Fixed typo here
+          pip install -r requirment.txt  # Corrected filename
 
       - name: Run tests
         run: |
@@ -41,5 +41,5 @@ jobs:
 
       - name: Tag and Push Docker image
         run: |
-          docker tag iris_model_app vikaskarbail/iris_model_app:latest  # Replace with your Docker Hub username
-          docker push vikaskarbail/iris_model_app:latest  # Same here
+          docker tag iris_model_app vikaskarbail/iris_model_app:latest
+          docker push vikaskarbail/iris_model_app:latest
